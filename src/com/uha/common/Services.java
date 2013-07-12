@@ -1,7 +1,9 @@
 package com.uha.common;
 
 public enum Services {
+	// TODO Finish Services Enum
 	BLOOD("Blood Work");
+	
 	
 	private String name;
 	private Services(String name) {

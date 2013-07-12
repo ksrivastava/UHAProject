@@ -8,7 +8,7 @@ import com.uha.common.Controller;
 
 @SuppressWarnings("serial")
 public abstract class UHAPanel extends JPanel {
-	
+
 	private Controller controller;
 
 	public UHAPanel(Controller controller) {
@@ -18,5 +18,14 @@ public abstract class UHAPanel extends JPanel {
 	}
 
 	protected abstract void initPanel();
-	
+
+	public void submit() {
+
+	}
+
+	public void clear() {
+		
+	}
+
+
 }

@@ -1,11 +1,14 @@
 package com.uha.client;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
 
+import com.uha.client.panel.AddPatientPanel;
 import com.uha.common.Controller;
-import java.awt.BorderLayout;
 
 public class MainScreen extends JFrame {
 	
@@ -17,8 +20,7 @@ public class MainScreen extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private Controller controller;
-	
-	private static final int IdTextBoxWidth = 180;
+	private AddPatientPanel addPatientPanel;
 	
 	public MainScreen(Controller controller) {
 		this.controller = controller;
@@ -38,10 +40,12 @@ public class MainScreen extends JFrame {
 		
 		JPanel homePanel = new JPanel();
 		tabPanel.addTab("Home", null, homePanel, null);
-		tabPanel.setEnabledAt(0, true);
 		
-		JPanel addPatientPanel = new JPanel();
-		tabPanel.addTab("Add Patient", null, addPatientPanel, null);
+		JPanel addPatientTabPanel = new JPanel();
+		tabPanel.addTab("Add Patient", null, addPatientTabPanel, null);
+		
+		addPatientPanel = new AddPatientPanel(controller);
+		addPatientTabPanel.add(addPatientPanel);
 		tabPanel.setEnabledAt(1, true);
 		
 		JPanel addDoctorPanel = new JPanel();
