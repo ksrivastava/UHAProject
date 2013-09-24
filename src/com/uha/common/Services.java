@@ -1,8 +1,19 @@
 package com.uha.common;
 
+
 public enum Services {
-	// TODO Finish Services Enum
-	BLOOD("Blood Work");
+	BLOOD("Blood Work"), 
+	OPHTH("Ophthalmology"),
+	CARDIO("Cardiology"), 
+	DENTAL("Dental"),
+	INTMED("Internal Medicine"), 
+	ENT("ENT"),
+	PEDIA("Pediatrics"), 
+	GASTRO("Gastroenterology"), 
+	GYNEO("Gyneocology"),
+	UROLOGY("Urology"), 
+	PSYCH("Psychiatry"),
+	PODIA("Podiatry");
 	
 	
 	private String name;

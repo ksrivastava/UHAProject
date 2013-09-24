@@ -1,13 +1,15 @@
 package com.uha.client.panel;
 
 import com.uha.common.Controller;
-import com.uha.common.Patient;
+import com.uha.common.Doctor;
 
 @SuppressWarnings("serial")
-public class AddPatientPanel extends AddUHAClientPanel {
+public class AddDoctorPanel extends AddUHAClientPanel {
 
-	public AddPatientPanel(Controller controller) {
+	public AddDoctorPanel(Controller controller) {
 		super(controller);
+		servicesPanel.makeExclusive();
+		
 	}
 
 	@Override
@@ -18,8 +20,8 @@ public class AddPatientPanel extends AddUHAClientPanel {
 
 	@Override
 	public void submit() {
-		client = new Patient(getID(), getName(), getServices());
-		if (controller.insertPatient(client)) {
+		client = new Doctor(getID(), getName(), getServices().get(0).getFirst());
+		if (controller.insertDoctor(client)) {
 			clear();
 		}
 

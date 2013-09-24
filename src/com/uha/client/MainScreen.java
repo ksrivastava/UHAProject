@@ -1,26 +1,33 @@
 package com.uha.client;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.JTextField;
 
+import com.uha.client.panel.AddDoctorPanel;
 import com.uha.client.panel.AddPatientPanel;
+import com.uha.client.panel.UpdateDoctorPanel;
+import com.uha.client.panel.UpdatePatientPanel;
 import com.uha.common.Controller;
+import com.uha.core.UHAPanel;
 
 public class MainScreen extends JFrame {
 	
 	private final static int START_X = 100;
 	private final static int START_Y = 100;
-	private final static int WIDTH = 1000;
+	private final static int WIDTH = 600;
 	private final static int HEIGHT = 500;
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private Controller controller;
-	private AddPatientPanel addPatientPanel;
+	private UHAPanel addPatientPanel;
+	private UHAPanel addDoctorPanel;
+	private UHAPanel updatePatientPanel;
+	private Component updateDoctorPanel;
 	
 	public MainScreen(Controller controller) {
 		this.controller = controller;
@@ -46,10 +53,26 @@ public class MainScreen extends JFrame {
 		
 		addPatientPanel = new AddPatientPanel(controller);
 		addPatientTabPanel.add(addPatientPanel);
-		tabPanel.setEnabledAt(1, true);
 		
-		JPanel addDoctorPanel = new JPanel();
-		tabPanel.addTab("Add Doctor", null, addDoctorPanel, null);
+		JPanel addDoctorTabPanel = new JPanel();
+		tabPanel.addTab("Add Doctor", null, addDoctorTabPanel, null);
 		tabPanel.setEnabledAt(2, true);
+		
+		addDoctorPanel = new AddDoctorPanel(controller);
+		addDoctorTabPanel.add(addDoctorPanel);
+		
+		JPanel updatePatientTabPanel = new JPanel();
+		tabPanel.addTab("Update Patient", null, updatePatientTabPanel, null);
+		tabPanel.setEnabledAt(3, true);
+		
+		updatePatientPanel = new UpdatePatientPanel(controller);
+		updatePatientTabPanel.add(updatePatientPanel);
+		
+		JPanel updateDoctorTabPanel = new JPanel();
+		tabPanel.addTab("Update Doctor", null, updateDoctorTabPanel, null);
+		tabPanel.setEnabledAt(4, true);
+		
+		updateDoctorPanel = new UpdateDoctorPanel(controller);
+		updateDoctorTabPanel.add(updateDoctorPanel);
 	}
 }

@@ -36,4 +36,25 @@ public abstract class UHATextField extends JTextField {
 	protected abstract void initHint();
 
 	protected abstract void initText();
+
+	public void clear() {
+		setText(text);
+		
+	}
+
+	public String getInitText() {
+		return text;
+	}
+
+	public void setInitText(String text) {
+		this.text = text;
+	}
+
+	public String getInitHint() {
+		return hint;
+	}
+
+	public void setInitHint(String hint) {
+		this.hint = hint;
+	}
 }

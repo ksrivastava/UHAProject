@@ -9,7 +9,7 @@ import com.uha.common.Controller;
 @SuppressWarnings("serial")
 public abstract class UHAPanel extends JPanel {
 
-	private Controller controller;
+	protected Controller controller;
 
 	public UHAPanel(Controller controller) {
 		this.controller = controller;
